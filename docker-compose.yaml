@@ -1,11 +1,14 @@
 services:
   postgres:
-    image: postgres:latest
+    container_name: postgres
+    image: postgres
     restart: always
     environment:
-      POSTGRES_DB: analytics
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
+      POSTGRES_DB: analytics
+    ports:
+      - 5432:5432
   
   kafka:
     image: apache/kafka:latest
